@@ -1,4 +1,4 @@
-{% set version = '3.1' %}
+{% set version = "3.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/cppRouting_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cppRouting/cppRouting_{{ version }}.tar.gz
-  sha256: bed3a5545f4e8b2ad849735c499149a5ee668d032ec54eb9ce1e523ec53417d6
+  sha256: 3b13d05f607a72e2b5d7e57c97d751015501fa4742d855f3697d4da925de09e1
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -59,24 +59,14 @@ test:
     - $R -f test.R                        # [not win]
     - "\"%R%\" -e \"library(cppRouting)"  # [win]
     - "\"%R%\" -f test.R"                 # [win]
-    
 
 about:
   home: https://github.com/vlarmet/cppRouting
   license: GPL-2.0-or-later
-  summary: Calculation of distances, shortest paths and isochrones on weighted graphs using several
-    variants of Dijkstra algorithm. Proposed algorithms are unidirectional Dijkstra
-    (Dijkstra, E. W. (1959) <doi:10.1007/BF01386390>), bidirectional Dijkstra (Goldberg,
-    Andrew & Fonseca F. Werneck, Renato (2005) <https://archive.siam.org/meetings/alenex05/papers/03agoldberg.pdf>),
-    A* search (P. E. Hart, N. J. Nilsson et B. Raphael (1968) <doi:10.1109/TSSC.1968.300136>),
-    new bidirectional A* (Pijls & Post (2009) <https://repub.eur.nl/pub/16100/ei2009-10.pdf>),
-    Contraction hierarchies (R. Geisberger, P. Sanders, D. Schultes and D. Delling (2008)
-    <doi:10.1007/978-3-540-68552-4_24>), PHAST (D. Delling, A.Goldberg, A. Nowatzyk,
-    R. Werneck (2011) <doi:10.1016/j.jpdc.2012.02.007>). Algorithms for solving the
-    traffic assignment problem are All-or-Nothing assignment, Method of Successive Averages,
-    Frank-Wolfe algorithm (M. Fukushima (1984) <doi:10.1016/0191-2615(84)90029-8>),
-    Conjugate and Bi-Conjugate Frank-Wolfe algorithms (M. Mitradjieva, P. O. Lindberg
-    (2012) <doi:10.1287/trsc.1120.0409>), Algorithm-B (R. B. Dial (2006) <doi:10.1016/j.trb.2006.02.008>).
+  summary: Calculation of distances, shortest paths and isochrones on weighted graphs using several variants of Dijkstra algorithm. Proposed algorithms are unidirectional Dijkstra (Dijkstra, E. W. (1959) <doi:10.1007/BF01386390>), bidirectional Dijkstra (Goldberg, Andrew & Fonseca F. Werneck, Renato (2005) <https://archive.siam.org/meetings/alenex05/papers/03agoldberg.pdf>),
+    A* search (P. E. Hart, N. J. Nilsson et B. Raphael (1968) <doi:10.1109/TSSC.1968.300136>), new bidirectional A* (Pijls & Post (2009) <https://repub.eur.nl/pub/16100/ei2009-10.pdf>), Contraction hierarchies (R. Geisberger, P. Sanders, D. Schultes and D. Delling (2008) <doi:10.1007/978-3-540-68552-4_24>), PHAST (D. Delling,
+    A.Goldberg, A. Nowatzyk, R. Werneck (2011) <doi:10.1016/j.jpdc.2012.02.007>). Algorithms for solving the traffic assignment problem are All-or-Nothing assignment, Method of Successive Averages, Frank-Wolfe algorithm (M. Fukushima (1984) <doi:10.1016/0191-2615(84)90029-8>), Conjugate and Bi-Conjugate Frank-Wolfe algorithms
+    (M. Mitradjieva, P. O. Lindberg (2012) <doi:10.1287/trsc.1120.0409>), Algorithm-B (R. B. Dial (2006) <doi:10.1016/j.trb.2006.02.008>).
   license_family: GPL2
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
